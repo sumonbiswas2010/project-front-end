@@ -12,7 +12,7 @@ const Home = () => {
 
     console.log("called");
     try{
-    const response = await fetch('http://api.weatherapi.com/v1/current.json?key=e4bdd4326ac64b2987c93822211407&q=Bagerhat&aqi=no' , {
+    const response = await fetch('https://api.weatherapi.com/v1/current.json?key=e4bdd4326ac64b2987c93822211407&q=Bagerhat&aqi=no' , {
         method: 'GET'
         
     });

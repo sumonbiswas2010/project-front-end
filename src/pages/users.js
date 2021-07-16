@@ -21,7 +21,7 @@ const Users = () => {
         setIsLoading(true);
         //console.log("called");
         try{
-        const response = await fetch('/' , {
+        const response = await fetch('https://sumon-backend.herokuapp.com/api/' , {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',

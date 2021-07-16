@@ -35,7 +35,7 @@ const GetServiceForm = (props) =>{
             e.preventDefault();
             console.log("called signup");
             try{
-                const response = await fetch('/help' , {
+                const response = await fetch('https://sumon-backend.herokuapp.com/api/help' , {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

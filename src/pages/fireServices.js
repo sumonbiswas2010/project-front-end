@@ -20,7 +20,7 @@ const FireServices = () => {
         setIsLoading(true);
         //console.log("called");
         try{
-        const response = await fetch('/fire' , {
+        const response = await fetch('https://sumon-backend.herokuapp.com/api/fire' , {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
