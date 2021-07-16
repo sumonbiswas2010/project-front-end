@@ -21,7 +21,7 @@ const Users = () => {
         setIsLoading(true);
         //console.log("called");
         try{
-        const response = await fetch('http://localhost:5000/api' , {
+        const response = await fetch('/' , {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
