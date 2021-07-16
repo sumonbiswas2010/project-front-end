@@ -26,7 +26,7 @@ const DemoLogin = () => {
         e.preventDefault();
         console.log("called signup");
         try{
-        const response = await fetch('/' , {
+        const response = await fetch('https://sumon-backend.herokuapp.com/api' , {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -60,7 +60,7 @@ const DemoLogin = () => {
         console.log(email + password)
         console.log("called");
         try{
-        const response = await fetch('/login' , {
+        const response = await fetch('https://sumon-backend.herokuapp.com/api/login' , {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
