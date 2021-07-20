@@ -131,19 +131,19 @@ const DemoLogin = () => {
             <br></br>
             <br></br>
             <label>Phone: </label>
-            <input name="phone" value={phone} onChange={phoneChange} type="phone"></input>
+            <input name="phone" value={phone} onChange={phoneChange} type="phone" required></input>
             <br></br><br></br>
             <label>District: </label>
-            <input name="district" value={district} onChange={districtChange} type="text"></input>
+            <input name="district" value={district} onChange={districtChange} type="text" required></input>
             <br></br>
         </div>}
         <div>
         <br></br>
       <label>Email: </label>
-      <input name="email" value={email} onChange={handleEmailChange} type="email"></input>
+      <input name="email" value={email} onChange={handleEmailChange} type="email" required></input>
       <br></br><br></br>
       <label>Password: </label>
-      <input value={password} onChange={handlePasswordChange} name="password" type="password"></input>
+      <input value={password} onChange={handlePasswordChange} name="password" type="password" required></input>
       <br></br><br></br>
       <button className="center"onClick={signUpMode? signUpHandler : loginHandler } type="submit">Submit</button>
       <br></br> <br></br> <br></br>
