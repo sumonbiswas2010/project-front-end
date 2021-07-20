@@ -12,7 +12,7 @@ const Home = () => {
 
     console.log("called");
     try{
-    const response = await fetch('https://api.weatherapi.com/v1/current.json?key=e4bdd4326ac64b2987c93822211407&q=Bagerhat&aqi=no' , {
+    const response = await fetch('http://api.weatherapi.com/v1/current.json?key=e4bdd4326ac64b2987c93822211407&q=Bagerhat&aqi=no' , {
         method: 'GET'
         
     });
@@ -52,11 +52,7 @@ const Home = () => {
       {isLoading && <Loading />}
       {!isLoading &&
     <div className="App">
-      <p>Emergency Situation Handling System</p>
-      <div className="middle" >HomePage</div>
-      <br></br> <br></br>
-      <p><b>Current Temperature in Bagerhat: {temp}</b></p>
-      <p><b>Feels Like: {aTemp}</b></p>
+      <img src='./images/home.jpg' alt="Home" />
     </div>
     }
     </div>

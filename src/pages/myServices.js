@@ -1,11 +1,8 @@
-import React, {useState} from 'react';
+import React, {useState} from 'react'
+import MyServicesData from '../Component/myServicesData'
 import Loading from '../Component/Loading'
-import UserCard from '../Component/userCard';
-import './users.css'
 
-
-
-const Users = () => {
+const MyServices =  () => {
 
     const [allUsers, setUsers] = useState();
     const [currentUser, setCurrentUser] = useState();
@@ -13,21 +10,18 @@ const Users = () => {
     const [loggedIn, setLoggedin]= useState(false);
 
     let token = localStorage.getItem("token")
-    const name = localStorage.getItem("name")
-
 
     const getUsers = async () => {
         setIsLoading(true);
-        //console.log("called");
+        console.log("called");
         try{
-        const response = await fetch('https://sumon-backend.herokuapp.com/api/' , {
+        const response = await fetch('https://sumon-backend.herokuapp.com/api/myservices' , {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': 'Bearer ' + token
             }
         });
-        console.log(response)
         
         const responseData = await response.json();
         console.log(responseData)
@@ -44,34 +38,31 @@ const Users = () => {
           
         }
         catch {
-            console.log("oops")
+            console.log("Catch")
         }
         setIsLoading(false)
         
         
     };
-    //getUsers();
-    //console.log(currentUser)
 
-    
-
-    return(
-        <React.Fragment>
+    return (
+        <div>
+            <p>My Services</p>
             {isLoading && <Loading/>}
             {!loggedIn && <p>Please log in to view</p>}
             {!isLoading &&
             <div className="container">
-            <p>{name}</p>
             <button onClick={getUsers}>GetUSers</button>
             {allUsers &&
             <div>
             <br></br>
-            <UserCard data = {allUsers} user = {currentUser}/>
+            <MyServicesData data = {allUsers} user = {currentUser}/>
             </div>}
             </div>
             }
-        </React.Fragment>
+        </div>
     )
+
 }
 
-export default Users;
+export default MyServices

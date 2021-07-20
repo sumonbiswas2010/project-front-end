@@ -13,12 +13,12 @@ function ncard(value){
    />
    );
 }
-const Services = (props) => { 
-   //const name = localStorage.getItem("name").split('"').join('')
+const Services = () => { 
+   
 
     return(
         <>
-   <h1 className="heading">Emergency Services. Hi SUmon</h1>
+   <h1 className="heading">Emergency Services. Hi {"X"}</h1>
     {Sdata.map(ncard)}
     </>
     );

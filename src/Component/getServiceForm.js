@@ -11,14 +11,12 @@ const GetServiceForm = (props) =>{
     const [isLoading, setIsLoading] = useState();
     let token = localStorage.getItem("token")
 
-    console.log(msg)
-
 
     const locationSetHandler= (e) =>{
         const val = e.target.value
         setLocation(val)
         const element= document.getElementById('color');
-        if(val=='others')
+        if(val==='others')
             element.style.display='block';
         else  
             element.style.display='none';
@@ -53,6 +51,7 @@ const GetServiceForm = (props) =>{
                 setMsg("Data Found Successfully")
                 props.assignUser(responseData.user)
                 props.assignData(responseData.data)
+                props.assignType(serviceType)
                 
             }
             else if (response.status===400) {setMsg("Service Type Error")}
@@ -66,6 +65,7 @@ const GetServiceForm = (props) =>{
                 setIsLoading(false)
             }
         }
+        
         const locationSet = (e) => {
             setLocation(e.target.value)
         }

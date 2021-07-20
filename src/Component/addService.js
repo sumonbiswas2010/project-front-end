@@ -88,13 +88,13 @@ const AddService = (props) => {
     const OneTimeChange = () =>{
         useEffect(()=>{
             console.log('called')
-            if(props.type == 'fire'){
+            if(props.type === 'fire'){
                 setType('Fire Staton')
             }
-            else if(props.type == 'police'){
+            else if(props.type === 'police'){
                 setType('Police Staton')
             }
-        }, [props.type])
+        }, [])
     }
     
     OneTimeChange();

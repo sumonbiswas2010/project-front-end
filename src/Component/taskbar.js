@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import './taskbar.css'
-import {Route, Redirect  } from 'react-router-dom';
+import { Redirect  } from 'react-router-dom';
 
 const Taskbar = () => {
 
@@ -17,7 +17,7 @@ const Taskbar = () => {
             else {
                 setIsLoggedIn(true)
             }
-        }, [token]);
+        }, []);
     } 
     App();
     const logout = (e) => {
@@ -30,12 +30,6 @@ const Taskbar = () => {
             <Redirect to="users"/>
         )
         
-        //<Redirect to= '/users' exact/>   
-        return (
-            <Route exact path="/users">
-                <Redirect to="/users" />
-            </Route>
-        )
         }
         
     }
@@ -43,11 +37,11 @@ const Taskbar = () => {
     return(
         <div className="taskbar">
             <a href="/demo" onClick={logout}>{loggedIn? 'Logout': 'Login'}</a>
+            {loggedIn &&<a href="/profile">My Profile</a>}
             <a href="admin">Admins</a>
-            <a href="/users">Users</a>
+            <a href="/myservices">My Services</a>
             <a href="/police_stations">Police Stations</a>
             <a href="/fire_services">Fire Services</a>
-            <a href="#">Ambulences</a>
             <a href="/get_service">Get Services</a>
             
         </div>

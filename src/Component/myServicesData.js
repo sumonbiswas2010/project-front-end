@@ -1,18 +1,17 @@
 import React from 'react'
 import './userCard.css'
 
-const UserCard =(props) =>
+const MyServicesData =(props) =>
 {
     const data = props.data
-    const userNow = props.user
+    console.log("data",data)
     
     const Users = data.map((user) =>
 
     <div className="cards" key={user.id}>
-        <p>ID: {user.id}</p>
-        <p>Full Name: {user.first_name} {user.last_name}</p>
-        <p>User Email: {user.email}</p> 
-        <p>Phone: {user.phone}</p>
+        <p>Service ID: <a target="_blank" href={"/fire_services/"+user.serviceid}>{user.serviceid}</a></p> 
+        <p>Status: {user.status}</p>
+        <p>Creation Time: {user.creation_time}</p>
     </div>
     
     );
@@ -26,4 +25,4 @@ const UserCard =(props) =>
 
     )
 }
-export default UserCard;
+export default MyServicesData;

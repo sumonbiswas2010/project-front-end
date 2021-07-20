@@ -9,7 +9,7 @@ const FireCard =(props) =>
     const Users = data.map((user) =>
 
     <div className="cards" key={user.id}>
-        <p>ID: {user.id}</p>
+        <p>ID: <a target="_blank" href={"/fire_services/"+user.id}>{user.id}</a></p>
         <p>Email: {user.email}</p> 
         <p>Phone: {user.phone}</p>
         <p>LAT: {user.lat}</p>
@@ -23,14 +23,6 @@ const FireCard =(props) =>
 
     return(
         <div>
-            <p>length: {data.length}</p>
-            <br></br><br></br><br></br>
-            <div className="cards" className="red" key={userNow.id}>
-                <p>This is The Logged in User</p>
-                <p>ID: {userNow.id}</p>
-                <p>User Email: {userNow.email}</p> 
-                <p>Phone: {userNow.phone}</p>
-            </div>
             <br></br><br></br>
             <div>{Users}</div>
         </div>

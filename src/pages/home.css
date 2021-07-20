@@ -1,8 +1,4 @@
-.middle {
-    justify-content: center;
-    color: red;
-}
-
-.red {
-    color:red
+img{
+  height:100vh;
+  width:100%;
 }
