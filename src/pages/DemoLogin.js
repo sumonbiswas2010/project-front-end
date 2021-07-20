@@ -131,16 +131,16 @@ const DemoLogin = () => {
             <br></br>
             <br></br>
             <label>Phone: </label>
-            <input name="phone" value={phone} onChange={phoneChange} type="phone" required></input>
+            <input name="phone" value={phone} onChange={phoneChange} type="phone" required="required"></input>
             <br></br><br></br>
             <label>District: </label>
-            <input name="district" value={district} onChange={districtChange} type="text" required></input>
+            <input name="district" value={district} onChange={districtChange} type="text" required="required"></input>
             <br></br>
         </div>}
         <div>
         <br></br>
       <label>Email: </label>
-      <input name="email" value={email} onChange={handleEmailChange} type="email" required></input>
+      <input name="email" value={email} onChange={handleEmailChange} type="email" required="required"></input>
       <br></br><br></br>
       <label>Password: </label>
       <input value={password} onChange={handlePasswordChange} name="password" type="password" required></input>
