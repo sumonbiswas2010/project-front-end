@@ -1,7 +1,8 @@
 .taskbar {
     height:50px;
     width: 1000px;
-    background-color:#EB8F8F;
+    background-color:green;
+    border: 1px solid black;
     display: flex;
     justify-content: space-evenly; 
 }
