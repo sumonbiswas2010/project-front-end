@@ -24,7 +24,7 @@ const DemoLogin = () => {
         e.preventDefault();
         console.log("called signup");
         try{
-        const response = await fetch('https://sumon-backend.herokuapp.com/api/' , {
+        const response = await fetch('/' , {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -58,7 +58,7 @@ const DemoLogin = () => {
         console.log(email + password)
         console.log("called");
         try{
-        const response = await fetch('https://sumon-backend.herokuapp.com/api/login' , {
+        const response = await fetch('/login' , {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -111,37 +111,49 @@ const DemoLogin = () => {
 
     return(
         <React.Fragment>
-                {isLoading && <Loading/>}
-                {(localStorage.getItem("token")|| loggedIn) && <Services/>}
-                {!isLoading && !loggedIn && 
-                
-        <div className="container">
-                {signUpMode && 
-                
-                    <div className="field">
-                        <input name="first_name" value={firstName} onChange={firstNameChange} type="text" placeholder="First name"></input><br/>
-                        
-                        <input name="last_name" value={lastName} onChange={lastNameChange} type="text" placeholder="Last name"></input><br/>
-                    
-                        <input name="phone" value={phone} onChange={phoneChange} type="phone" placeholder="Phone no."></input><br/>
-
-                        <input name="district" value={district} onChange={districtChange} type="text" placeholder="District"></input><br/>
-                    </div>}
-                    <div className="field">
-                        <input name="email" value={email} onChange={handleEmailChange} type="email" placeholder="Email"></input><br/>
-                
-                        <input value={password} onChange={handlePasswordChange} name="password" type="password" placeholder="Password"></input>
-                        
-                        <div className="clearfix">
-                        <button className="signup" onClick={modeToggle}>{signUpMode? 'Login' : 'Sign Up'}</button>
-                        <button className="subbtn"onClick={signUpMode? signUpHandler : loginHandler } type="submit">Submit</button>
-                </div>   
-         <p className="red center">{msg}</p>
+            {isLoading && <Loading/>}
+            {(localStorage.getItem("token")|| loggedIn) && <Services/>}
+            {!isLoading && !loggedIn && 
+            
+        <div className="App">
+            <br></br> <br></br> <br></br><br></br>
+            <button onClick={modeToggle}>{signUpMode? 'Login' : 'Sign Up'}</button>
+        <br></br>
+        <br></br><br></br>
+        {signUpMode && 
+        <div>
+            <label>First Name: </label>
+            <input name="first_name" value={firstName} onChange={firstNameChange} type="text"></input>
+            <br></br>
+            <br></br>
+            <label>Last Name: </label>
+            <input name="last_name" value={lastName} onChange={lastNameChange} type="text"></input>
+            <br></br>
+            <br></br>
+            <label>Phone: </label>
+            <input name="phone" value={phone} onChange={phoneChange} type="phone"></input>
+            <br></br><br></br>
+            <label>District: </label>
+            <input name="district" value={district} onChange={districtChange} type="text"></input>
+            <br></br>
+        </div>}
+        <div>
+        <br></br>
+      <label>Email: </label>
+      <input name="email" value={email} onChange={handleEmailChange} type="email"></input>
+      <br></br><br></br>
+      <label>Password: </label>
+      <input value={password} onChange={handlePasswordChange} name="password" type="password"></input>
+      <br></br><br></br>
+      <button className="center"onClick={signUpMode? signUpHandler : loginHandler } type="submit">Submit</button>
+      <br></br> <br></br> <br></br>
+      <p className="red center">{msg}</p>
       </div>
     </div>
     
             }
             
+    
     </React.Fragment>
     )
 }

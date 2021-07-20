@@ -16,7 +16,7 @@ const Details = (props) => {
     const getDetails = async () => {
         setIsLoading(true);
         try{
-        const response = await fetch('https://sumon-backend.herokuapp.com/api/details' , {
+        const response = await fetch('/details' , {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

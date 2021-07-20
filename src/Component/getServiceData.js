@@ -16,7 +16,7 @@ const GetServiceData = (props) =>{
         setIsLoading(true)
 
         try{
-        const response = await fetch('https://sumon-backend.herokuapp.com/api/service' , {
+        const response = await fetch('http://localhost:5000/api/service' , {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

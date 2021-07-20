@@ -52,7 +52,11 @@ const Home = () => {
       {isLoading && <Loading />}
       {!isLoading &&
     <div className="App">
-      <img src='./images/home.jpg' alt="Home" />
+      <p>Emergency Situation Handling System</p>
+      <div className="middle" >HomePage</div>
+      <br></br> <br></br>
+      <p><b>Current Temperature in Bagerhat: {temp}</b></p>
+      <p><b>Feels Like: {aTemp}</b></p>
     </div>
     }
     </div>

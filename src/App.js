@@ -1,6 +1,7 @@
 import React from 'react';
 import Home from './pages/home'
 import Services from './pages/services';
+import Signup from './pages/signup';
 //import AddServices from './pages/addServices'
 import DemoLogin from './pages/DemoLogin'
 import Users from './pages/users'
@@ -59,6 +60,9 @@ const App = () => {
       
       <Route path="/demo" exact>
         <DemoLogin/>
+      </Route>
+      <Route path="/signup" exact>
+        <Signup/>
       </Route>
       <Route path="/">
         <NotFound/>
