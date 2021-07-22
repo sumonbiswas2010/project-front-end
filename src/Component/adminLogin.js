@@ -89,10 +89,10 @@ const AdminLogin = (props) => {
             </select>
         <br></br>
       <label>Username: </label>
-      <input name="username" value={userName} onChange={usernameChange} type="email" required></input>
+      <input name="username" value={userName} onChange={usernameChange} type="email" required="required"></input>
       <br></br><br></br>
       <label>Password: </label>
-      <input value={password} onChange={handlePasswordChange} name="password" type="password" required></input>
+      <input value={password} onChange={handlePasswordChange} name="password" type="password" required="required"></input>
       <br></br><br></br>
       <label>Password2: </label>
       <input value={password2} onChange={handlePasswordChange2} name="password" type="password"></input>
