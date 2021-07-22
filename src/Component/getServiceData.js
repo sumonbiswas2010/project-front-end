@@ -7,7 +7,6 @@ const GetServiceData = (props) =>{
     const [isLoading, setIsLoading] = useState();
     const [msg, setMsg] = useState();
     const data = props.data
-    const user = props.user
     const type= props.type
     const token = localStorage.getItem("token")
     const [createdServiceId, setCreatedServiceId] = useState();
@@ -30,7 +29,8 @@ const GetServiceData = (props) =>{
         const responseData = await response.json();
         if(response.ok) {
             setCreatedServiceId(responseData.data);
-            setMsg("Signp Successfull. Please Login")}
+            setMsg("Please Don't Panik, We're on the way")
+        }
         else if (response.status===405) {setMsg("Required Data Error")}
         else if (response.status===500) {setMsg("Database Error")}
         else {setMsg("Something Bad, Contact Developers");}
@@ -65,6 +65,7 @@ const GetServiceData = (props) =>{
         
         {!isLoading &&
         <div>
+            <p>OK {msg}</p>
             <br></br><br></br>
             {!isLoading && createdServiceId && <p className="center">Service Creation ID: {createdServiceId}</p>}
             <br></br><br></br>

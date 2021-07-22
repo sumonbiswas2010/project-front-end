@@ -8,7 +8,6 @@ import './users.css'
 const Users = () => {
 
     const [allUsers, setUsers] = useState();
-    const [currentUser, setCurrentUser] = useState();
     const [isLoading, setIsLoading] = useState();
     const [loggedIn, setLoggedin]= useState(false);
 
@@ -20,7 +19,7 @@ const Users = () => {
         setIsLoading(true);
         //console.log("called");
         try{
-        const response = await fetch('https://sumon-backend.herokuapp.com/api/' , {
+        const response = await fetch('https://sumon-backend.herokuapp.com/api' , {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -34,8 +33,7 @@ const Users = () => {
         if(response.ok) {
             setLoggedin(true)
             setUsers(responseData.data)
-            //console.log(allUsers)
-            setCurrentUser(responseData.user.user)
+
             
         }
         else {
@@ -50,8 +48,6 @@ const Users = () => {
         
         
     };
-    //getUsers();
-    //console.log(currentUser)
 
     
 
@@ -66,7 +62,7 @@ const Users = () => {
             {allUsers &&
             <div>
             <br></br>
-            <UserCard data = {allUsers} user = {currentUser}/>
+            <UserCard data = {allUsers}/>
             </div>}
             </div>
             }

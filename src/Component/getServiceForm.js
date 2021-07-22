@@ -33,7 +33,7 @@ const GetServiceForm = (props) =>{
             e.preventDefault();
             console.log("called signup");
             try{
-                const response = await fetch('https://sumon-backend.herokuapp.com/api/help' , {
+                const response = await fetch('hhttps://sumon-backend.herokuapp.com/api/help' , {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -47,15 +47,18 @@ const GetServiceForm = (props) =>{
             const responseData = await response.json();
 
             if(response.ok) { 
-                
+                if(responseData.data.length > 0) {
                 setMsg("Data Found Successfully")
+                console.log(responseData)
                 props.assignUser(responseData.user)
                 props.assignData(responseData.data)
                 props.assignType(serviceType)
+                }
+                else {setMsg("Sorry, no data found")}
                 
             }
             else if (response.status===400) {setMsg("Service Type Error")}
-            else if (response.status===400) {setMsg("Database error")}
+            else if (response.status===400) {setMsg("Error Help Type")}
             else {setMsg("Something Bad, Contact Developers");}
             setIsLoading(false)
  
@@ -95,7 +98,8 @@ const GetServiceForm = (props) =>{
             <input type="text" name="location" onChange={locationSet} placeholder="others" id="color"></input>
             <br></br><br></br>
             <button type="submit" onClick={getServiceNow}>Get Help Now</button>
-
+            <br></br> <br></br><br></br>
+            <p>{msg}</p>
         </div>
         }
         </React.Fragment>

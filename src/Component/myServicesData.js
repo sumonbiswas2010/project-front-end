@@ -3,13 +3,26 @@ import './userCard.css'
 
 const MyServicesData =(props) =>
 {
-    const data = props.data
-    console.log("data",data)
+    const data1 = props.data.data
+    const data2 = props.data.data2
+    console.log("data",data1)
+    console.log("data2",data2)
     
-    const Users = data.map((user) =>
+    const Fire = data1.map((user) =>
 
     <div className="cards" key={user.id}>
+        <p>Service Type: Fire Service</p>
         <p>Service ID: <a target="_blank" href={"/fire_services/"+user.serviceid}>{user.serviceid}</a></p> 
+        <p>Status: {user.status}</p>
+        <p>Creation Time: {user.creation_time}</p>
+    </div>
+    
+    );
+    const Police = data2.map((user) =>
+
+    <div className="cards" key={user.id}>
+        <p>Service Type: Police Station</p>
+        <p>Service ID: <a target="_blank" href={"/police_stations/"+user.serviceid}>{user.serviceid}</a></p> 
         <p>Status: {user.status}</p>
         <p>Creation Time: {user.creation_time}</p>
     </div>
@@ -20,7 +33,9 @@ const MyServicesData =(props) =>
     return(
         <div>
             <br></br><br></br>
-            <div>{Users}</div>
+            <div>{Fire}</div>
+            <br></br><br></br>
+            <div>{Police}</div>
         </div>
 
     )

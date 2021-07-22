@@ -1,38 +1,29 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState} from 'react'
 import './taskbar.css'
-//import {Route, Redirect  } from 'react-router-dom';
-
 const AdminTaskbar = (props) => {
 
-    const [loggedIn, setIsLoggedIn] = useState();
-    
-    let token = localStorage.getItem("adminToken")
-    
-    function App() {
-        useEffect(() => {
-            if (props.login || token) {
-                setIsLoggedIn(true)
-            }
-            else {
-                setIsLoggedIn(false)
-            }
-        }, []);
-    } 
-    App();
+    const [loggedIn, setLoggedIn] = useState();
+
     const logout = (e) => {
-        e.preventDefault();
+        //e.preventDefault();
         if(loggedIn)
         {
         localStorage.removeItem("adminToken")
         localStorage.removeItem("adminName")
+        setLoggedIn(false)
         console.log("called")
+        props.loginChange(false)
+        
+        
         }
         
     }
 
     return(
+        <React.Fragment>
+            
         <div className="taskbar">
-            <a href="/" onClick={logout}>{loggedIn? 'Logout': 'Login'}</a>
+            <a href="/admin" onClick={logout}>{loggedIn? 'Logout': 'Login'}</a>
             <a href="admin">Admins</a>
             <a href="/users">Users</a>
             <a href="/police_stations">Police Stations</a>
@@ -40,6 +31,7 @@ const AdminTaskbar = (props) => {
             <a href="/get_service">Get Services</a>
             
         </div>
+        </React.Fragment>
     )
 }
 

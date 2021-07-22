@@ -87,12 +87,11 @@ const AddService = (props) => {
 
     const OneTimeChange = () =>{
         useEffect(()=>{
-            console.log('called')
             if(props.type === 'fire'){
-                setType('Fire Staton')
+                setType('Fire Service')
             }
             else if(props.type === 'police'){
-                setType('Police Staton')
+                setType('Police Station')
             }
         }, [])
     }
@@ -106,8 +105,8 @@ const AddService = (props) => {
         {!isLoading &&
         
         <div>
-            <p>You can add a {type}</p>
-        <p>Add a Service</p>
+            <p>You can add a {type}</p><br></br>
+        <p>Now Add a Service</p>
         <br></br>
             <label>District: </label>
             <input name="district" value={district} onChange={districtChange} type="text"></input>

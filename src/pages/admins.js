@@ -3,39 +3,72 @@ import './admins.css'
 import AdminLogin from '../Component/adminLogin'
 import AddService from '../Component/addService'
 import AdminTaskbar from '../Component/adminTaskbar'
+import Loading from '../Component/Loading'
 
 const Admins = () => {
 
     const [loggedIn, setLoggedIn] = useState();
     const [type, setType] = useState();
+    const [loading, setIsLoading] = useState();
     
-    let token = localStorage.getItem("adminToken");
     const loginChange = (status, type) => {
-        setLoggedIn(status)
+        setIsLoading(true)
         setType(type)
+        setLoggedIn(status)
+        
         console.log("status: "+status+ type)
+        setIsLoading(false)
     }
+
+    let token = localStorage.getItem("adminToken")
+    const loginCheck = async () => {
+        setIsLoading(true);
+        console.log("called");
+        try{
+        const response = await fetch('https://sumon-backend.herokuapp.com/api/adminlogincheck' , {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + token
+            }
+        });
+        const responseData = await response.json();
+        //console.log(responseData)
+        if(response.ok) {
+            setLoggedIn(true)
+            setType(responseData.user.user.type)
+            
+        }
+        else {
+            console.log("Token Error")
+        }
+        }
+        catch {
+            console.log("Catch")
+        }
+        setIsLoading(false)
+    };
     function App() {
         useEffect(() => {
-            if (!token) {
-                setLoggedIn(false)
-            }
-            else {
-                setLoggedIn(true)
-            }
+            loginCheck()
         }, []);
     } 
     App();
+
+
+    
     
 
     return (
         <div>
         <p>Admins Activity</p>
-        <AdminTaskbar login={loggedIn} />
-        {loggedIn && <p>Logged In</p>}
-        {!loggedIn &&<AdminLogin login={loginChange}/>}
-        {loggedIn && <AddService type={type}/>}
+        {loading && <Loading/>}
         
+        {!loading && <AdminTaskbar loginChange={loginChange} login={loggedIn} />}
+        {!loading && loggedIn && <p>Logged In</p>}
+        {!loading && !loggedIn &&<AdminLogin login={loginChange}/>}
+        {!loading && loggedIn && type && <AddService type={type}/>}
+
 
         </div>
     )

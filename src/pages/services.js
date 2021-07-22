@@ -4,21 +4,20 @@ import Sdata from '../Component/Sdata'
 
 
 function ncard(value){
-   console.log(value);
    return(
-      <Card 
+      <Card
       imgsrc={value.imgsrc}
       title={value.title}
       link={value.link}
    />
    );
 }
-const Services = () => { 
-   
+const Services = (props) => { 
 
+   
     return(
         <>
-   <h1 className="heading">Emergency Services. Hi {"X"}</h1>
+   <h1 className="heading">Emergency Services. Hi {props.data}</h1>
     {Sdata.map(ncard)}
     </>
     );

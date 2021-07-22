@@ -13,6 +13,7 @@ import Admins from './pages/admins'
 import Profile from './pages/profile'
 import NotFound from './pages/notFound'
 import Details from './pages/details'
+import SocialLogin from './pages/socialLogin'
 import MyServices from './pages/myServices';
 import {Switch, BrowserRouter as Router, Route} from 'react-router-dom';
 
@@ -24,6 +25,9 @@ const App = () => {
     <Taskbar/>
     <Router>
       <Switch>
+      <Route path="/social" exact>
+        <SocialLogin/>
+      </Route>
       <Route path="/users" exact>
         <Users/>
       </Route>

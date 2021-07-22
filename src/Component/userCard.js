@@ -4,7 +4,6 @@ import './userCard.css'
 const UserCard =(props) =>
 {
     const data = props.data
-    const userNow = props.user
     
     const Users = data.map((user) =>
 

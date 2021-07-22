@@ -3,7 +3,6 @@ import "./cards.css"
 
 
 function Cards(props) {
-    console.log(props)
     return (
       <React.StrictMode>
       <div className="cards">

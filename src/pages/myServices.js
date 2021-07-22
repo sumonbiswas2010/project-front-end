@@ -27,7 +27,7 @@ const MyServices =  () => {
         console.log(responseData)
         if(response.ok) {
             setLoggedin(true)
-            setUsers(responseData.data)
+            setUsers(responseData)
             //console.log(allUsers)
             setCurrentUser(responseData.user.user)
             

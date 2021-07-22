@@ -19,7 +19,6 @@ const Home = () => {
     const responseData = await response.json();
 
     if(response.ok) {
-      console.log(responseData.current.feelslike_c)
       setTemp(responseData.current.temp_c)
       
       setAtemp(responseData.current.feelslike_c)
@@ -42,7 +41,6 @@ const Home = () => {
     }, []);
   } 
   App();
-  console.log(isLoading)
 
   
 
