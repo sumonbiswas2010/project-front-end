@@ -27,7 +27,7 @@ const DemoLogin = () => {
         setIsLoading(true);
         console.log("called");
         try{
-        const response = await fetch('https://sumon-backend.herokuapp.com/api/userlogincheck' , {
+        const response = await fetch('https://helping-backend.vercel.app/api/userlogincheck' , {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -63,7 +63,7 @@ const DemoLogin = () => {
         e.preventDefault();
 
         try{
-        const response = await fetch('https://sumon-backend.herokuapp.com/api/' , {
+        const response = await fetch('https://helping-backend.vercel.app/api/' , {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -99,7 +99,7 @@ const DemoLogin = () => {
 
         try{
 
-        const response = await fetch('https://sumon-backend.herokuapp.com/api/login' , {
+        const response = await fetch('https://helping-backend.vercel.app/api/login' , {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -157,7 +157,7 @@ const DemoLogin = () => {
 
         try{
 
-        const response = await fetch('https://sumon-backend.herokuapp.com/api/login' , {
+        const response = await fetch('https://helping-backend.vercel.app/api/login' , {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

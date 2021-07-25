@@ -15,7 +15,7 @@ const GetServiceData = (props) =>{
         setIsLoading(true)
 
         try{
-        const response = await fetch('https://sumon-backend.herokuapp.com/api/service' , {
+        const response = await fetch('https://helping-backend.vercel.app/api/service' , {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

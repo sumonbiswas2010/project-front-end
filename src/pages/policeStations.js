@@ -20,7 +20,7 @@ const PoliceStations = () => {
         setIsLoading(true);
         //console.log("called");
         try{
-        const response = await fetch('https://sumon-backend.herokuapp.com/api/police' , {
+        const response = await fetch('https://helping-backend.vercel.app/api/police' , {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',

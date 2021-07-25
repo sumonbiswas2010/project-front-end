@@ -25,7 +25,7 @@ const AddService = (props) => {
         e.preventDefault();
         console.log("called signup");
         try{
-        const response = await fetch('https://sumon-backend.herokuapp.com/api/add_service' , {
+        const response = await fetch('https://helping-backend.vercel.app/api/add_service' , {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

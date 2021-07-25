@@ -19,7 +19,7 @@ const Users = () => {
         setIsLoading(true);
         //console.log("called");
         try{
-        const response = await fetch('https://sumon-backend.herokuapp.com/api' , {
+        const response = await fetch('https://helping-backend.vercel.app/api' , {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
