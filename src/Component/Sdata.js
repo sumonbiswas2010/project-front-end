@@ -2,13 +2,13 @@ const Sdata = [
     {
         imgsrc:"https://static8.depositphotos.com/1037238/818/v/380/depositphotos_8181091-stock-illustration-firefighters.jpg",
         title:"Fire service",
-        link:"http://localhost:3000/fire_services",
+        link:"/fire_services",
     },
 
     {
         imgsrc:"https://www.freevector.com/uploads/vector/preview/29467/Police-Station.jpg",
         title:"Police station",
-        link:"http://localhost:3000/police_stations",
+        link:"/police_stations",
 
     
     },
