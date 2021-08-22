@@ -1,6 +1,8 @@
 import React, {useState} from 'react'
+import { Form } from 'react-bootstrap';
 import './adminLogin.css'
 import Loading from './Loading'
+import {  } from 'react-bootstrap';
 
 const AdminLogin = (props) => {
 
@@ -75,31 +77,20 @@ const AdminLogin = (props) => {
             {!isLoading && !loggedIn && 
             
         <div className="App">
-            <br></br> <br></br>
-            
-        <br></br>
-        
-
-        <div>
-        <label>Service Type: </label>
+        <div className="">
             <select name="serviceType" value={type} onChange={serviceSet}>
+                <option value="service">Service type</option>
                 <option value="police">Police Station</option>
                 <option value="fire">Fire Service</option>
                 <option value="others">Others</option>
             </select>
-        <br></br>
-      <label>Username: </label>
-      <input name="username" value={userName} onChange={usernameChange} type="email" required="required"></input>
-      <br></br><br></br>
-      <label>Password: </label>
-      <input value={password} onChange={handlePasswordChange} name="password" type="password" required="required"></input>
-      <br></br><br></br>
-      <label>Password2: </label>
-      <input value={password2} onChange={handlePasswordChange2} name="password" type="password"></input>
-      <br></br><br></br>
-      <button className="center"onClick={loginHandler} type="submit">Submit</button>
-      <br></br> <br></br> <br></br>
-      <p className="red center">{msg}</p>
+            <Form.Control name="username" value={userName} onChange={usernameChange} type="email" required placeholder="Username"></Form.Control>
+            <Form.Control value={password} onChange={handlePasswordChange} name="password" type="password" required placeholder="Password"></Form.Control>
+            <Form.Control value={password2} onChange={handlePasswordChange2} name="password" type="password" placeholder="Password2"></Form.Control>
+            
+            <button className="subbtn"onClick={loginHandler} type="submit">Submit</button>
+           
+            <p className="red center">{msg}</p>
       </div>
     </div>
     

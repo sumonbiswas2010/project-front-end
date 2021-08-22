@@ -57,7 +57,6 @@ const Details = (props) => {
     
     return (
         <React.Fragment>
-        <p>Details</p>
         {isLoading && <Loading/>}
         {!isLoading && data &&
         <ServiceProfile data={data}/>

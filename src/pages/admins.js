@@ -61,11 +61,11 @@ const Admins = () => {
 
     return (
         <div>
-        <p>Admins Activity</p>
+        
         {loading && <Loading/>}
         
         {!loading && <AdminTaskbar loginChange={loginChange} login={loggedIn} />}
-        {!loading && loggedIn && <p>Logged In</p>}
+        {!loading && loggedIn && <p></p>}
         {!loading && !loggedIn &&<AdminLogin login={loginChange}/>}
         {!loading && loggedIn && type && <AddService type={type}/>}
 

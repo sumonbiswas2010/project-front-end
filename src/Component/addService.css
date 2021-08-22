@@ -1,0 +1,18 @@
+#center{
+    margin-left: 18% !important;
+}
+
+
+@media(max-width: 360px){
+    
+    #center{
+        width: 50% !important;
+        margin-left: 20% !important;
+       
+    }
+    .App{
+        margin-top: -35px !important;
+        margin-left: -8px;
+    }
+    
+  }

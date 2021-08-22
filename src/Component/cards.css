@@ -2,14 +2,13 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-    background-color: white;
   }
   
   .heading {
     color: #f5f0f0;
     font-weight: 500;
     background-color:#f87272;
-    padding: 30px 0;
+    padding: 30px, 0;
     text-align: center;
     text-transform: uppercase;
     font: size 13px;
@@ -22,6 +21,7 @@
   .cards{
     width:100%;
     height:auto;
+    margin-left: 150px;
   }
   
   .card {
@@ -70,29 +70,30 @@
     text-transform: capitalize;
   
   }
+  .bt{
+    width:200%;
+  }
   
   button{
     padding:6px 8px;
     font-family: sans-serif;
     text-transform: uppercase;
-    font-size: 13px;
+    font-size: 10px;
     letter-spacing:2px;
-    font-weight:bold;
+    font-weight:bold !important;
     color:#fdfdfd;
-    background-color: rgb(248, 172, 172);
-    outline:none;
-    border:0px solid rgb(253, 161, 161);
     cursor: pointer;
-    box-shadow: 0px 5px 5px 0px rgb(145, 143, 143);
-    border-radius: 8px;
-    
   }
   
   @media(max-width: 768px){
     .card{
       float: none;
-      margin: 5%;
+      margin-left: -35%;
       width:90%;
+    }
+    .heading{
+      width:100% !important;
+      margin-left: 0%;
     }
     
   }

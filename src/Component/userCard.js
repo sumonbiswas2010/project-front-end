@@ -7,7 +7,7 @@ const UserCard =(props) =>
     
     const Users = data.map((user) =>
 
-    <div className="cards" key={user.id}>
+    <div className="User" key={user.id}>
         <p>ID: {user.id}</p>
         <p>Full Name: {user.first_name} {user.last_name}</p>
         <p>User Email: {user.email}</p> 
@@ -19,7 +19,6 @@ const UserCard =(props) =>
 
     return(
         <div>
-            <br></br><br></br>
             <div>{Users}</div>
         </div>
 

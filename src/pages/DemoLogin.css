@@ -1,30 +1,80 @@
-.middle {
-    justify-content: center;
-    color: red;
-}
+*{
+    -webkit-box-orient: vertical;
 
-.red {
-    color:red;
-}
-
-div {
-    margin: 0 auto;
-    text-align: left;
-}
-
-label {
-    display:inline-block;
-    width:100px;
-    height:20px;
-}
-
-.center {
-    text-align: center;
-    display: block;
-    margin: 0 auto;
 }
 
 input {
-    width:200px;
-    height: 30px;
-}
+    width: 60% !important;
+    padding: 10px !important;
+    margin: 10px !important;
+    display: block;
+    background: #f0efef !important;
+    border-color:rgb(148, 207, 255) !important;
+    border-width: 3px !important;
+  }
+  input:focus {
+    background-color: #ddd;
+    outline: none;
+  }
+  .App {
+    padding-left: 400PX !important;
+    padding-top: 50px !important;
+  }
+  .mt-3 {
+    padding-left: 10PX !important;
+    padding-top: 0px !important;
+    
+  }
+
+
+  button {
+    width:30% !important;
+    color: #DC3545 !important;
+    padding: 14px 25px !important;
+    margin-top: 15px;
+    margin-left: -5px;
+    cursor: pointer;
+    border-color: #f35060 !important;
+    border-width: 3px !important;
+    opacity: 0.9;
+    text-align: center;
+    transition: 1s;
+  }
+  
+  button:hover {
+    background-color: #DC3545 !important;
+    color: #fff !important;
+  }
+  p{
+    margin-left: 140px;
+  }
+
+  .socialG{
+    margin-left:20px !important;
+  }
+  .centerS{
+    margin-left:20px !important;
+  }
+
+  @media screen and (max-width: 360px) {
+   .App{
+     padding-left: 20px !important;
+   }
+   input{
+       width:100% !important;
+   }
+   button{
+      width: 43% !important;
+      margin-left: 20px;
+      border-radius: 40px;
+   }
+   
+
+  button:hover {
+    opacity:1 !important;
+    background-color: #DC3545 !important;
+    color: #fff !important;
+   
+  }
+  
+  }

@@ -1,5 +1,6 @@
 import React from 'react'
 import './userCard.css'
+import './fireCard.css'
 
 const FireCard =(props) =>
 {
@@ -8,7 +9,7 @@ const FireCard =(props) =>
     
     const Users = data.map((user) =>
 
-    <div className="cards" key={user.id}>
+    <div className="uCard" key={user.id}>
         <p>ID: <a target="_blank" href={"/fire_services/"+user.id}>{user.id}</a></p>
         <p>Email: {user.email}</p> 
         <p>Phone: {user.phone}</p>
@@ -23,7 +24,6 @@ const FireCard =(props) =>
 
     return(
         <div>
-            <br></br><br></br>
             <div>{Users}</div>
         </div>
 

@@ -1,7 +1,9 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import Loading from '../Component/Loading'
 import FireCard from '../Component/fireCard';
 import './users.css'
+import fire from '../images/fire.jpg';
+import './fireServices.css'
 
 
 
@@ -15,6 +17,14 @@ const FireServices = () => {
     let token = localStorage.getItem("token")
     const name = localStorage.getItem("name")
 
+    function App() {
+        useEffect(() => {
+            if(token) {
+                setLoggedin(true);
+            }
+        }, []);
+      } 
+      App();
 
     const getUsers = async () => {
         setIsLoading(true);
@@ -59,15 +69,20 @@ const FireServices = () => {
             {isLoading && <Loading/>}
             {!loggedIn && <p>Please log in to view</p>}
             {!isLoading &&
-            <div className="container">
-            <p>{name}</p>
-            <button onClick={getUsers}>GetUSers</button>
+            <div>
+                <div className="col-lg-6 order-1 order-lg-2">
+                  <img src={fire} class="fire " alt="Responsive image"></img>
+                </div>
+            <div className="">
+            <p className="user">{name}</p>
+            <button className="get" onClick={getUsers}>Get Fire Services</button>
             {allUsers &&
             <div>
-            <br></br>
             <FireCard data = {allUsers} user = {currentUser}/>
             </div>}
             </div>
+            </div>
+           
             }
         </React.Fragment>
     )

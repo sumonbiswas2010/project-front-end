@@ -45,9 +45,8 @@ const GetServiceData = (props) =>{
     
     const Users = data.map((data) =>
 
-    <div className="cards" key={data.id}>
-        <button className="center" onClick={()=>createService(data.id)}>Click to Get HELP</button>
-        <br></br><br></br>
+    <div className="class" key={data.id}>
+        <button className="center" onClick={()=>createService(data.id)}>Click to Get HELP</button> <br/><br/>
         <p>ID: {data.id}</p>
         <p>Full address: {data.address}, {data.thana}, {data.district}</p>
         <p>Email: {data.email}</p> 
@@ -65,10 +64,8 @@ const GetServiceData = (props) =>{
         
         {!isLoading &&
         <div>
-            <p>OK {msg}</p>
-            <br></br><br></br>
+            <p> {msg}</p>
             {!isLoading && createdServiceId && <p className="center">Service Creation ID: {createdServiceId}</p>}
-            <br></br><br></br>
             <div>{Users}</div>
         </div>}
         </React.Fragment>

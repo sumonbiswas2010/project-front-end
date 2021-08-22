@@ -1,5 +1,6 @@
 import React from 'react'
-import './userCard.css'
+import './fireCard.css'
+
 
 const PoliceCard =(props) =>
 {
@@ -7,7 +8,7 @@ const PoliceCard =(props) =>
     
     const Users = data.map((user) =>
 
-    <div className="cards" key={user.id}>
+    <div className="uCard" key={user.id}>
         <p>ID: <a target="_blank" href={"/police_stations/"+user.id}>{user.id}</a></p>
         <p>Email: {user.email}</p> 
         <p>Phone: {user.phone}</p>
@@ -22,7 +23,6 @@ const PoliceCard =(props) =>
 
     return(
         <div>
-            <br></br><br></br>
             <div>{Users}</div>
         </div>
 

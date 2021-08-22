@@ -22,7 +22,6 @@ const GetService = () => {
 
     return(
         <React.Fragment>
-            <p>GET SERVICES</p>
             {!data &&<GetServiceForm assignUser={assignUser} assignData={assignData} assignType={assignType} />}
             {user && data && <GetServiceData user={user} data={data} type={type}/>}
         </React.Fragment>

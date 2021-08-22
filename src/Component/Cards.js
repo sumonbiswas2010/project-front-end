@@ -11,8 +11,9 @@ function Cards(props) {
           <div className="card_info">
             <h3 className="card_title">{props.title}</h3>
             <a href={props.link} target="_blank">
-              <button>Location </button>
-              
+              <div className="bt">
+              <button>Find services </button>
+              </div>
             </a>
           </div>
         </div>

@@ -1,5 +1,6 @@
 import React from 'react'
 import './userCard.css'
+import "./myServicesData.css"
 
 const MyServicesData =(props) =>
 {
@@ -10,7 +11,7 @@ const MyServicesData =(props) =>
     
     const Fire = data1.map((user) =>
 
-    <div className="cards" key={user.id}>
+    <div className="data" key={user.id}>
         <p>Service Type: Fire Service</p>
         <p>Service ID: <a target="_blank" href={"/fire_services/"+user.serviceid}>{user.serviceid}</a></p> 
         <p>Status: {user.status}</p>
@@ -20,7 +21,7 @@ const MyServicesData =(props) =>
     );
     const Police = data2.map((user) =>
 
-    <div className="cards" key={user.id}>
+    <div className="data" key={user.id}>
         <p>Service Type: Police Station</p>
         <p>Service ID: <a target="_blank" href={"/police_stations/"+user.serviceid}>{user.serviceid}</a></p> 
         <p>Status: {user.status}</p>
@@ -31,10 +32,9 @@ const MyServicesData =(props) =>
 
 
     return(
-        <div>
-            <br></br><br></br>
+        <div className="data-1">
+            <br/>
             <div>{Fire}</div>
-            <br></br><br></br>
             <div>{Police}</div>
         </div>
 

@@ -5,6 +5,7 @@ import Loading from '../Component/Loading'
 //import Login from '../Component/Sdata/Login'
 import {facebookProvider, googleProvider} from '../config/authMethods'
 import socialMediaAuth from '../config/auth'
+import { Form, Row, Col} from 'react-bootstrap';
 
 
 const DemoLogin = () => {
@@ -189,56 +190,56 @@ const DemoLogin = () => {
     }
     return(
         <React.Fragment>
-            {isLoading && <Loading/>}
-            {!isLoading && !loggedIn && 
-            <div>
-            <br></br>
-            <p>Social Login</p>
-            <button onClick={()=>handleOnClick(facebookProvider)}>Facebook</button>
-            <button onClick={()=>handleOnClick(googleProvider)}>Google</button>
-            <br></br> 
-            </div>}
             {!isLoading && loggedIn && <Services data={data}/>}
             {!isLoading && !loggedIn && 
             
-        <div className="App">
-            <br></br> <br></br> <br></br><br></br>
-            <button onClick={modeToggle}>{signUpMode? 'Login' : 'Sign Up'}</button>
-        <br></br>
-        <br></br><br></br>
+        <div className="App">   
         {signUpMode && 
         <div>
-            <label>First Name: </label>
-            <input name="first_name" value={firstName} onChange={firstNameChange} type="text"></input>
-            <br></br>
-            <br></br>
-            <label>Last Name: </label>
-            <input name="last_name" value={lastName} onChange={lastNameChange} type="text"></input>
-            <br></br>
-            <br></br>
-            <label>Phone: </label>
-            <input name="phone" value={phone} onChange={phoneChange} type="phone" required></input>
-            <br></br><br></br>
-            <label>District: </label>
-            <input name="district" value={district} onChange={districtChange} type="text" required></input>
-            <br></br>
+            <Row className="g-2">
+               <Col md>
+                    <Form.Control name="first_name" value={firstName} onChange={firstNameChange} type="text" placeholder="First name"></Form.Control>
+                    <Form.Control name="last_name" value={lastName} onChange={lastNameChange} type="text" placeholder="Last Name"></Form.Control>
+
+                    <Form.Control name="phone" value={phone} onChange={phoneChange} type="phone" required placeholder="Phone"></Form.Control>
+                    
+                    <Form.Control name="district" value={district} onChange={districtChange} type="text" required placeholder="District"></Form.Control>
+               </Col>
+            </Row>
         </div>}
+
         <div>
-        <br></br>
-      <label>Email: </label>
-      <input name="email" onChange={handleEmailChange} type="email" required></input>
-      <br></br><br></br>
-      <label>Password: </label>
-      <input onChange={handlePasswordChange} name="password" type="password" required></input>
-      <br></br><br></br>
-      <button className="center"onClick={signUpMode? signUpHandler : loginHandler } type="submit">Submit</button>
-      <br></br> <br></br> <br></br>
-      <p className="red center">{msg}</p>
-      </div>
-    </div>
-    
-            }
+        <Row className="g-2">
+               <Col md>
+            <Form.Control name="email" onChange={handleEmailChange} type="email" required placeholder="Email"></Form.Control>
+
+            <Form.Control onChange={handlePasswordChange} name="password" type="password" required placeholder="Password"></Form.Control>
+        
+            </Col>
+            </Row>
             
+            </div>
+            <div className="mt-3">
+            <button className="centerL" onClick={modeToggle}>{signUpMode? 'Login' : 'Sign Up'}</button>
+             <button className="centerS"onClick={signUpMode? signUpHandler : loginHandler } type="submit">Submit</button>
+            <p className="red center">{msg}</p>
+
+            {isLoading && <Loading/>}
+            {!isLoading && !loggedIn && 
+            <div>
+                <p>Or</p>
+                <button className="socialF"onClick={()=>handleOnClick(facebookProvider)}>Facebook</button>
+                <button className="socialG"onClick={()=>handleOnClick(googleProvider)}>Google</button>
+        
+            </div>}
+            </div>
+            {!isLoading && loggedIn && <Services data={data}/>}
+            
+            
+    </div>
+            }
+
+
     
     </React.Fragment>
     )

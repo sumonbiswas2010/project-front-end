@@ -1,7 +1,9 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import Loading from '../Component/Loading'
 import PoliceCard from '../Component/policeCard';
 import './users.css'
+import './policeStations.css'
+import police from "../images/police.jpg";
 
 
 
@@ -15,6 +17,14 @@ const PoliceStations = () => {
     let token = localStorage.getItem("token")
     const name = localStorage.getItem("name")
 
+    function App() {
+        useEffect(() => {
+            if(token) {
+                setLoggedin(true);
+            }
+        }, []);
+      } 
+      App();
 
     const getUsers = async () => {
         setIsLoading(true);
@@ -59,14 +69,18 @@ const PoliceStations = () => {
             {isLoading && <Loading/>}
             {!loggedIn && <p>Please log in to view</p>}
             {!isLoading &&
-            <div className="container">
-            <p>{name}</p>
-            <button onClick={getUsers}>GetUSers</button>
+
+            <div >
+                 <img src={police} class="police " alt=""/>
+            <div className="">
+               
+            <p className="name">{name}</p>
+            <button className="get" onClick={getUsers}>Get Police Stations</button>
             {allUsers &&
             <div>
-            <br></br>
             <PoliceCard data = {allUsers} user = {currentUser}/>
             </div>}
+            </div>
             </div>
             }
         </React.Fragment>

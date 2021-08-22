@@ -2,6 +2,8 @@ import React, {useState, useEffect} from 'react'
 import Loading from '../Component/Loading'
 import UserProfile from '../Component/userProfile'
 
+import '../Component/userProfile.css'
+
 const Profile = () => {
 
     const [loading, setIsLoading] = useState()
@@ -46,7 +48,7 @@ const Profile = () => {
 
     return(
         <div>
-            <h1>My Profile</h1>
+            
             {loading && <Loading />}
             {!loading && userFound && <UserProfile data={userData}/>}
         </div>

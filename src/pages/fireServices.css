@@ -1,0 +1,37 @@
+
+.fire{
+    display:block;
+    width:70% !important;
+    height:70% !important;
+    margin-left: 120% !important;
+    margin-top: 100px !important;
+}
+.user{
+    margin-top: -400px;
+    margin-left: 23%;
+    font-size:20px;
+}
+
+.get{
+    
+    margin-left: 13%;
+}
+
+
+    @media(max-width: 360px){
+        .fire{
+            display: none;
+        }
+        
+        .user{
+            margin-top: 20px;
+            margin-left: 25%;
+        }
+    
+        .get{
+            width: 100% !important;
+            margin-left: 0%;
+            margin-top: -10px;
+        }
+    
+        }

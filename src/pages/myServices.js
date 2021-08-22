@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import MyServicesData from '../Component/myServicesData'
 import Loading from '../Component/Loading'
+import '../Component/myServicesData.css'
 
 const MyServices =  () => {
 
@@ -47,15 +48,14 @@ const MyServices =  () => {
 
     return (
         <div>
-            <p>My Services</p>
+            
             {isLoading && <Loading/>}
             {!loggedIn && <p>Please log in to view</p>}
             {!isLoading &&
-            <div className="container">
-            <button onClick={getUsers}>GetUSers</button>
+            <div >
+            <button  id="containerS" onClick={getUsers}>Get my service data</button>
             {allUsers &&
             <div>
-            <br></br>
             <MyServicesData data = {allUsers} user = {currentUser}/>
             </div>}
             </div>

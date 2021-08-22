@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import './taskbar.css'
 import { Redirect  } from 'react-router-dom';
+import { Navbar, Nav, } from 'react-bootstrap';
 
 const Taskbar = () => {
 
@@ -36,15 +37,27 @@ const Taskbar = () => {
 
     return(
         <div className="taskbar">
-            <a href="/demo" onClick={logout}>{loggedIn? 'Logout': 'Login'}</a>
-            {loggedIn &&<a href="/profile">My Profile</a>}
-            <a href="admin">Admins</a>
-            <a href="/myservices">My Services</a>
-            <a href="/police_stations">Police Stations</a>
-            <a href="/fire_services">Fire Services</a>
-            <a href="/get_service">Get Services</a>
-            
+            <Navbar bg="danger" text="light" expand="lg">
+                <Navbar.Toggle aria-controls="navbarScroll" />
+                <Navbar.Collapse id="navbarScroll">
+                    <Nav
+                    className="mr-auto my-2 my-lg-0"
+                    style={{ maxHeight: '100px' }}
+                    navbarScroll
+                    >
+                    <Nav.Link className="space" href="/demo" onClick={logout}>{loggedIn? 'Logout': 'Login'}</Nav.Link>
+                    <Nav.Link className="space" href="/">Home</Nav.Link>
+                    {loggedIn &&<Nav.Link className="space" href="/profile">My Profile</Nav.Link>}
+                    <Nav.Link className="space" href="admin">Admins</Nav.Link>
+                    <Nav.Link className="space" href="/myservices">My Services</Nav.Link>
+                    <Nav.Link className="space" href="/police_stations">Police Stations</Nav.Link>
+                    <Nav.Link className="space" href="/fire_services">Fire Services</Nav.Link>
+                    <Nav.Link className="space" href="/get_service">Get Services</Nav.Link>
+                </Nav>
+                </Navbar.Collapse>
+            </Navbar>
         </div>
+        
     )
 }
 

@@ -1,6 +1,8 @@
 import React, {useState} from 'react'
-import './getServiceForm.css'
+//import './adminLogin.css'
 import Loading from './Loading'
+import { Form } from 'react-bootstrap';
+import '../Component/getServiceForm.css'
 
 
 const GetServiceForm = (props) =>{
@@ -78,27 +80,21 @@ const GetServiceForm = (props) =>{
         <React.Fragment>
         {isLoading && <Loading/>}
         {!isLoading &&
-        <div id="serviceForm">
-            <p>Form</p>
-
-            <label>Service Type: </label>
+        <div className="App">
             <select name="serviceType" onChange={serviceSet}>
+            <option value="service">Service type:</option>
                 <option value="police">Police Station</option>
                 <option value="fire">Fire Service</option>
                 <option value="others">Others</option>
             </select>
-            <br></br>
-            <br></br>
-            <label>Location</label>
 
             <select name="location" onChange={locationSetHandler} >
+            <option value=" Location">Location:</option>
                 <option value="Registered Location">Registered Location</option>
                 <option value="others">Others</option>
-            </select>
-            <input type="text" name="location" onChange={locationSet} placeholder="others" id="color"></input>
-            <br></br><br></br>
-            <button type="submit" onClick={getServiceNow}>Get Help Now</button>
-            <br></br> <br></br><br></br>
+            </select><br/>
+            <Form.Control type="text" name="location" onChange={locationSet} placeholder="others" id="color"></Form.Control>
+            <button type="submit" className="help" onClick={getServiceNow}>Get Help Now</button>
             <p>{msg}</p>
         </div>
         }

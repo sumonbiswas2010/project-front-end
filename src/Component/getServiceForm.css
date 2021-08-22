@@ -1,16 +1,9 @@
-#color {
-    display: none;
+.help{
+    margin-top: 10px;
+    margin-left: 15%;
 }
-#serviceForm label {
-    width:100px;
-
+@media screen and (max-width: 360px) {
+   .help {
+    width:80% !important;
 }
-#serviceForm select {
-    width:150px;
-
-}
-#serviceForm {
-    color: green;
-    padding:10px;
-    margin:5px;
-}
+  }

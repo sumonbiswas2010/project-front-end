@@ -1,0 +1,38 @@
+.police{
+    display:block;
+    width:30%;
+    height:30%;
+    margin-left: 60%;
+    margin-top: 100px;
+}
+
+.name{
+    margin-top: -490px;
+    margin-left: 23%;
+    font-size:20px;
+}
+
+.get{
+    
+    margin-left: 13%;
+    margin-top: -10px;
+}
+
+
+    @media(max-width: 360px){
+        .police{
+            display: none;
+        }
+        
+        .name{
+            margin-top: 20px;
+            margin-left: 25%;
+        }
+    
+        .get{
+            width: 100% !important;
+            margin-left: 0%;
+            margin-top: -10px;
+        }
+    
+        }
