@@ -7,24 +7,28 @@ import police from "../images/police.jpg";
 
 
 
-const PoliceStations = () => {
+const PoliceStations = (props) => {
 
     const [allUsers, setUsers] = useState();
     const [currentUser, setCurrentUser] = useState();
     const [isLoading, setIsLoading] = useState();
-    const [loggedIn, setLoggedin]= useState(false);
+    const [loggedIn, setLoggedin]= useState();
     
     let token = localStorage.getItem("token")
     const name = localStorage.getItem("name")
 
+    console.log(props.login + "oj")
     function App() {
         useEffect(() => {
-            if(token) {
+            if(props.login){
                 setLoggedin(true);
+                getUsers()
             }
-        }, []);
+            else{setLoggedin(false);}
+        }, [props.login]);
       } 
-      App();
+    App();
+
 
     const getUsers = async () => {
         setIsLoading(true);
@@ -59,8 +63,11 @@ const PoliceStations = () => {
         
         
     };
-    //getUsers();
-    console.log(currentUser)
+    
+    // if(loggedIn){
+    //     getUsers();
+    // }
+
 
     
 
@@ -71,15 +78,14 @@ const PoliceStations = () => {
             {!isLoading &&
 
             <div >
-                 <img src={police} class="police " alt=""/>
+                 
             <div className="">
                
-            <p className="name">{name}</p>
-            <button className="get" onClick={getUsers}>Get Police Stations</button>
             {allUsers &&
             <div>
             <PoliceCard data = {allUsers} user = {currentUser}/>
             </div>}
+            <img src={police} class="police " alt=""/>
             </div>
             </div>
             }

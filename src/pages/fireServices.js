@@ -7,24 +7,28 @@ import './fireServices.css'
 
 
 
-const FireServices = () => {
+const FireServices = (props) => {
 
     const [allUsers, setUsers] = useState();
     const [currentUser, setCurrentUser] = useState();
     const [isLoading, setIsLoading] = useState();
-    const [loggedIn, setLoggedin]= useState(false);
+    const [loggedIn, setLoggedin]= useState();
     
     let token = localStorage.getItem("token")
     const name = localStorage.getItem("name")
 
+    console.log(props.login + "oj")
     function App() {
         useEffect(() => {
-            if(token) {
+            if(props.login){
                 setLoggedin(true);
+                getUsers()
             }
-        }, []);
+            else{setLoggedin(false);}
+        }, [props.login]);
       } 
-      App();
+    App();
+
 
     const getUsers = async () => {
         setIsLoading(true);
@@ -59,8 +63,11 @@ const FireServices = () => {
         
         
     };
-    //getUsers();
-    console.log(currentUser)
+    
+    // if(loggedIn){
+    //     getUsers();
+    // }
+
 
     
 
@@ -70,16 +77,15 @@ const FireServices = () => {
             {!loggedIn && <p>Please log in to view</p>}
             {!isLoading &&
             <div>
-                <div className="col-lg-6 order-1 order-lg-2">
-                  <img src={fire} class="fire " alt="Responsive image"></img>
-                </div>
+                
             <div className="">
-            <p className="user">{name}</p>
-            <button className="get" onClick={getUsers}>Get Fire Services</button>
             {allUsers &&
             <div>
             <FireCard data = {allUsers} user = {currentUser}/>
             </div>}
+            <div className="col-lg-6 order-1 order-lg-2">
+                  <img src={fire} class="fire " alt="Responsive image"></img>
+                </div>
             </div>
             </div>
            

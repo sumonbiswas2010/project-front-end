@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import Home from './pages/home'
 import Services from './pages/services';
 import Signup from './pages/signup';
@@ -15,16 +15,64 @@ import NotFound from './pages/notFound'
 import Details from './pages/details'
 import SocialLogin from './pages/socialLogin'
 import MyServices from './pages/myServices';
+import Loading from './Component/Loading'
 import {Switch, BrowserRouter as Router, Route} from 'react-router-dom';
 
 
 
 const App = () => {
+
+  const [loggedIn, setLoggedIn] = useState();
+  const [isLoading, setIsLoading] = useState();
+  const loginStatus = (x) => {
+    setLoggedIn(x);
+  }
+  const token= localStorage.getItem("token")
+  const loginCheck = async () => {
+    setIsLoading(true);
+    console.log("called");
+    try{
+    const response = await fetch('https://helping-backend.vercel.app/api/userlogincheck' , {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + token
+        }
+    });
+    const responseData = await response.json();
+    if(response.ok) {
+        setLoggedIn(true)
+
+    }
+    else {
+        setLoggedIn(false)
+        console.log("Token Error")
+    }
+    }
+    catch {
+        console.log("Catch")
+    }
+    setIsLoading(false)
+};
+function App() {
+    useEffect(() => {
+        if(token){
+            loginCheck()
+        }
+        
+    }, []);
+} 
+App();
+  
+  
   return (
     <React.Fragment>
     
     <Router>
       <Switch>
+      <Route path="/loading" exact>
+      <Loading/>
+      </Route>
       <Route path="/social" exact>
       <Taskbar/>
         <SocialLogin/>
@@ -43,7 +91,7 @@ const App = () => {
       </Route>
       <Route path="/myservices" exact>
       <Taskbar/>
-        <MyServices/>
+        <MyServices login={loggedIn}/>
       </Route>
       <Route path="/get_service" exact>
       <Taskbar/>
@@ -55,7 +103,7 @@ const App = () => {
       </Route>
       <Route path="/police_stations" exact>
       <Taskbar/>
-        <PoliceStations/>
+        <PoliceStations login={loggedIn}/>
       </Route>
       <Route path="/police_stations/:id" exact>
       <Taskbar/>
@@ -67,16 +115,14 @@ const App = () => {
       </Route>
       <Route path="/fire_services" exact>
       <Taskbar/>
-        <FireServices/>
+        <FireServices login={loggedIn}/>
       </Route>
       <Route path="/services" exact>
-      <Taskbar/>
         <Services/>
       </Route>
       
       <Route path="/demo" exact>
-      <Taskbar/>
-        <DemoLogin/>
+        <DemoLogin loginStatus={loginStatus}/>
       </Route>
       <Route path="/signup" exact>
         <Signup/>

@@ -3,7 +3,7 @@ import './taskbar.css'
 import { Redirect  } from 'react-router-dom';
 import { Navbar, Nav, } from 'react-bootstrap';
 
-const Taskbar = () => {
+const Taskbar = (props) => {
 
     const [loggedIn, setIsLoggedIn] = useState();
     
@@ -17,6 +17,10 @@ const Taskbar = () => {
             }
             else {
                 setIsLoggedIn(true)
+            }
+            if(props.login){
+                console.log("gettit")
+                setIsLoggedIn(props.login)
             }
         }, []);
     } 

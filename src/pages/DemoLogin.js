@@ -6,9 +6,10 @@ import Loading from '../Component/Loading'
 import {facebookProvider, googleProvider} from '../config/authMethods'
 import socialMediaAuth from '../config/auth'
 import { Form, Row, Col} from 'react-bootstrap';
+import Taskbar from '../Component/taskbar'
 
 
-const DemoLogin = () => {
+const DemoLogin = (props) => {
 
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
@@ -39,6 +40,7 @@ const DemoLogin = () => {
         if(response.ok) {
             setLoggedIn(true)
             setData(responseData.user.user.name)
+            props.loginStatus(true)
         }
         else {
             setLoggedIn(false)
@@ -59,6 +61,7 @@ const DemoLogin = () => {
         }, []);
     } 
     App();
+
     const signUpHandler = async e => {
         setIsLoading(true)
         e.preventDefault();
@@ -116,6 +119,7 @@ const DemoLogin = () => {
         if(response.ok) {
             setLoggedIn(true)
             setData(responseData.name)
+            props.loginStatus(true)
         }
         else {setMsg("Wrong Credentials")}
         setIsLoading(false)
@@ -190,7 +194,10 @@ const DemoLogin = () => {
     }
     return(
         <React.Fragment>
-            {!isLoading && loggedIn && <Services data={data}/>}
+            
+            {!loggedIn && <Taskbar/>}
+            {!isLoading && loggedIn && <Services login={loggedIn} data={data}/>}
+            {isLoading && <Loading/>}
             {!isLoading && !loggedIn && 
             
         <div className="App">   
@@ -224,7 +231,7 @@ const DemoLogin = () => {
              <button className="centerS"onClick={signUpMode? signUpHandler : loginHandler } type="submit">Submit</button>
             <p className="red center">{msg}</p>
 
-            {isLoading && <Loading/>}
+            
             {!isLoading && !loggedIn && 
             <div>
                 <p>Or</p>
@@ -233,11 +240,11 @@ const DemoLogin = () => {
         
             </div>}
             </div>
-            {!isLoading && loggedIn && <Services data={data}/>}
             
             
     </div>
             }
+            
 
 
     

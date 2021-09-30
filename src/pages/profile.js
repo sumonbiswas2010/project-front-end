@@ -46,6 +46,8 @@ const Profile = () => {
       } 
       App();
 
+                  console.log(userData)
+
     return(
         <div>
             

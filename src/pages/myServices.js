@@ -1,9 +1,9 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import MyServicesData from '../Component/myServicesData'
 import Loading from '../Component/Loading'
 import '../Component/myServicesData.css'
 
-const MyServices =  () => {
+const MyServices =  (props) => {
 
     const [allUsers, setUsers] = useState();
     const [currentUser, setCurrentUser] = useState();
@@ -11,6 +11,16 @@ const MyServices =  () => {
     const [loggedIn, setLoggedin]= useState(false);
 
     let token = localStorage.getItem("token")
+    function App() {
+        useEffect(() => {
+            if(props.login){
+                setLoggedin(true);
+                getUsers()
+            }
+            else{setLoggedin(false);}
+        }, [props.login]);
+      } 
+    App();
 
     const getUsers = async () => {
         setIsLoading(true);
@@ -53,7 +63,6 @@ const MyServices =  () => {
             {!loggedIn && <p>Please log in to view</p>}
             {!isLoading &&
             <div >
-            <button  id="containerS" onClick={getUsers}>Get my service data</button>
             {allUsers &&
             <div>
             <MyServicesData data = {allUsers} user = {currentUser}/>
