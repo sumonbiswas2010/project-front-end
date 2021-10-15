@@ -56,20 +56,20 @@ input {
     margin-left:20px !important;
   }
 
-  @media screen and (max-width: 360px) {
+  @media only screen and (max-width: 768px) {
+    /* For mobile phones: */ 
    .App{
      padding-left: 20px !important;
    }
    input{
-       width:100% !important;
+       width:90% !important;
    }
    button{
       width: 43% !important;
-      margin-left: 20px;
+      margin-left: 0px;
       border-radius: 40px;
    }
-   
-
+  
   button:hover {
     opacity:1 !important;
     background-color: #DC3545 !important;

@@ -47,8 +47,8 @@ const AdminTaskbar = (props) => {
 
     return(
         <React.Fragment>
-            
-            <Navbar bg="danger" text="light" expand="lg" className="navbar2">
+            <div className="navbar2">
+            <Navbar bg="danger" text="light" expand="lg" >
                 <Navbar.Toggle aria-controls="navbarScroll" />
                 <Navbar.Collapse id="navbarScroll">
                     <Nav
@@ -65,6 +65,7 @@ const AdminTaskbar = (props) => {
                 </Nav>
                 </Navbar.Collapse>
             </Navbar>
+            </div>
         </React.Fragment>
     )
 }

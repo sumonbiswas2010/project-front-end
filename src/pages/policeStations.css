@@ -19,7 +19,7 @@
 }
 
 
-    @media(max-width: 360px){
+@media only screen and (max-width: 768px){
         .police{
             display: none;
         }
@@ -36,3 +36,19 @@
         }
     
         }
+
+        @media only screen and (max-width: 992px){
+            .police{
+                display: none !important;
+            }
+            .name{
+                margin-top: 3%;
+                margin-left: 45%;
+            }
+            .get{
+                width: 90% !important;
+                margin-left: 10%;
+                margin-top: -10px;
+            }
+        
+            } 

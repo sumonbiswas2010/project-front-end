@@ -1,9 +1,15 @@
+
+.hello{
+    margin-left: 20%;
+    font-size: 20px;
+}
+
 #center{
     margin-left: 18% !important;
 }
 
 
-@media(max-width: 360px){
+@media only screen and (max-width: 768px){
     
     #center{
         width: 50% !important;
@@ -11,7 +17,7 @@
        
     }
     .App{
-        margin-top: -35px !important;
+        margin-top: -55px !important;
         margin-left: -8px;
     }
     

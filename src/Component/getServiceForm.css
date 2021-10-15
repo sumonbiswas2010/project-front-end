@@ -2,8 +2,16 @@
     margin-top: 10px;
     margin-left: 15%;
 }
-@media screen and (max-width: 360px) {
+@media only screen and (max-width: 768px){
    .help {
-    width:80% !important;
+    width:90% !important;
+    margin-left: 0%;
 }
+input{
+    width:90% !important;
+}
+
+select {
+    width: 90% !important;
+ }
   }

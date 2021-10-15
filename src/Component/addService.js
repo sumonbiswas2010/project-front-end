@@ -107,7 +107,7 @@ const AddService = (props) => {
         {!isLoading &&
         
         <div className="App">
-            <p>Hello Admin</p>
+            <p className="hello">Hello Admin</p>
             <p>You can add a {type}</p>
             <Form.Control name="district" value={district} onChange={districtChange} type="text" placeholder="District"></Form.Control>
             

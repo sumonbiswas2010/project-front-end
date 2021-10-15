@@ -18,7 +18,7 @@
 }
 
 
-    @media(max-width: 360px){
+@media only screen and (max-width: 768px){
         .fire{
             display: none;
         }
@@ -30,8 +30,23 @@
     
         .get{
             width: 100% !important;
-            margin-left: 0%;
+            margin-left: 0% !important;
             margin-top: -10px;
         }
     
         }
+        @media only screen and (max-width: 992px){
+            .fire{
+                display: none !important;
+            }
+            .user{
+                margin-top: 3%;
+                margin-left: 45%;
+            }
+            .get{
+                width: 90% !important;
+                margin-left: 10%;
+                margin-top: -10px;
+            }
+        
+            }        

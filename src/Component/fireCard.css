@@ -11,7 +11,7 @@ p{
     
 }
 
-@media(max-width: 360px){
+@media only screen and (max-width: 768px){
      .uCard{
         width: 90%;
         margin-left: 20px;
@@ -20,3 +20,10 @@ p{
         padding-top: 10px;
     }
 }
+
+@media only screen and (max-width: 992px){
+    .uCard{
+        width: 90%;
+    }
+
+    }  
