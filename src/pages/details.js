@@ -16,7 +16,7 @@ const Details = (props) => {
     const getDetails = async () => {
         setIsLoading(true);
         try{
-        const response = await fetch('https://helping-backend.vercel.app/api/details' , {
+        const response = await fetch('https://helping-backend-older.vercel.app/api/details' , {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

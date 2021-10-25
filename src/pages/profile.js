@@ -14,7 +14,7 @@ const Profile = () => {
         setIsLoading(true);
         //console.log("called");
         try{
-        const response = await fetch('https://helping-backend.vercel.app/api/profile' , {
+        const response = await fetch('https://helping-backend-older.vercel.app/api/profile' , {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

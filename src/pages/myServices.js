@@ -26,7 +26,7 @@ const MyServices =  (props) => {
         setIsLoading(true);
         console.log("called");
         try{
-        const response = await fetch('https://helping-backend.vercel.app/api/myservices' , {
+        const response = await fetch('https://helping-backend-older.vercel.app/api/myservices' , {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',

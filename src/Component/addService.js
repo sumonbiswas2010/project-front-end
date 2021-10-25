@@ -27,7 +27,7 @@ const AddService = (props) => {
         console.log("called signup");
         //https://helping-backend.vercel.app/api/
         try{
-        const response = await fetch('http://localhost:5000/api/add_service' , {
+        const response = await fetch('https://helping-backend-older.vercel.app/api/add_service' , {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

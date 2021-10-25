@@ -35,7 +35,7 @@ const GetServiceForm = (props) =>{
             e.preventDefault();
             console.log("called signup");
             try{
-                const response = await fetch('https://helping-backend.vercel.app/api/help' , {
+                const response = await fetch('https://helping-backend-older.vercel.app/api/help' , {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

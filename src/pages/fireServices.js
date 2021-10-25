@@ -34,7 +34,7 @@ const FireServices = (props) => {
         setIsLoading(true);
         //console.log("called");
         try{
-        const response = await fetch('https://helping-backend.vercel.app/api/fire' , {
+        const response = await fetch('https://helping-backend-older.vercel.app/api/fire' , {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
